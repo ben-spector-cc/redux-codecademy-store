@@ -3,32 +3,32 @@ export const cartReducer = (cart = initialCart, action) => {
   switch (action.type) {
     case 'cart/addItem': {
       const { name, price } = action.payload;
-      
+
       // if the item already exists, increase the quantity by 1, otherwise set it to 1
       const quantity = cart[name] ? cart[name].quantity + 1 : 1;
       const newItem = { price, quantity };
 
       // Add the new item to the cart (or replace it if it existed already)
-      return {...cart, [name]: newItem };
+      return { ...cart, [name]: newItem };
     }
-    case 'cart/changeItemQuantity': { 
+    case 'cart/changeItemQuantity': {
       const { name, newQuantity } = action.payload;
 
       const updatedItem = {
-        ...cart[name], 
-        quantity: newQuantity
-      }
+        ...cart[name],
+        quantity: newQuantity,
+      };
 
       return {
         ...cart,
-        [name]: updatedItem
-      }
+        [name]: updatedItem,
+      };
     }
     default: {
       return cart;
     }
   }
-}
+};
 
 /* 
 addItem() is dispatched when the user clicks on "Add To Cart"
@@ -40,9 +40,9 @@ for a given item in the inventory.
 export const addItem = (itemToAdd) => {
   return {
     type: 'cart/addItem',
-    payload: itemToAdd
+    payload: itemToAdd,
   };
-}
+};
 
 /* 
 changeItemQuantity() is dispatched when the user changes the quantity
@@ -55,6 +55,6 @@ of a given item already in their cart.
 export const changeItemQuantity = (name, newQuantity) => {
   return {
     type: 'cart/changeItemQuantity',
-    payload: { name, newQuantity }
+    payload: { name, newQuantity },
   };
-}
+};

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap');
 
 html,
 body,
@@ -6,7 +6,7 @@ body,
 #app {
   height: 100%;
   margin: 15px;
-  font-family: "Oxygen", sans-serif;
+  font-family: 'Oxygen', sans-serif;
 }
 
 #app {
@@ -183,7 +183,6 @@ body,
   width: 100%;
 }
 
-
 #inventory-container img {
   height: 100px;
   display: block;
@@ -201,7 +200,7 @@ body,
   margin: 10px;
 }
 
-#cart-items  p {
+#cart-items p {
   display: inline;
   margin-right: 8px;
 }
@@ -216,5 +215,5 @@ body,
 }
 
 input.quantity {
-  width: 35px
+  width: 35px;
 }

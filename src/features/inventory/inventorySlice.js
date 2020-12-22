@@ -1,11 +1,11 @@
-import { inventoryData } from '../../data.js'
+import { inventoryData } from '../../data.js';
 
 export const loadData = (data) => {
   return {
     type: 'inventory/loadData',
-    payload: inventoryData
-  }
-}
+    payload: inventoryData,
+  };
+};
 
 const initialInventory = [];
 export const inventoryReducer = (inventory = initialInventory, action) => {
@@ -17,4 +17,4 @@ export const inventoryReducer = (inventory = initialInventory, action) => {
       return inventory;
     }
   }
-}
+};
