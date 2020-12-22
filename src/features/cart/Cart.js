@@ -44,10 +44,9 @@ export const Cart = (props) => {
           <input
             className="quantity"
             id={name+'-quantity'}
-            type="text"
+            type = "number" 
             value={item.quantity}
             onChange={(e) => onInputChangeHandler(name, e.target.value)}
-            type = "number" 
             min='0'
           />
         </li>

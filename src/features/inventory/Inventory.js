@@ -8,7 +8,7 @@ export const Inventory = ({inventory, currencyFilter, dispatch}) => {
   const onMount = () => {
     dispatch(loadData());
   }
-  useEffect(onMount, []);
+  useEffect(onMount, [dispatch]);
   
   const onClickHandler = (inventoryItem) => {
     dispatch(addItem(inventoryItem));
