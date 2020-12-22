@@ -24,6 +24,7 @@ export const Cart = (props) => {
 
   const cartElements = Object.keys(cart).map(createCartItem);
   const total = calculateTotal(cart, currencyFilter);
+  const currencySymbol = getCurrencySymbol(currencyFilter)
 
   return (
     <div id="cart-container">
@@ -33,8 +34,7 @@ export const Cart = (props) => {
       <h3 className="total">
         Total{' '}
         <span className="total-value">
-          {getCurrencySymbol(currencyFilter)}
-          {total} {currencyFilter}
+          {currencySymbol}{total} {currencyFilter}
         </span>
       </h3>
     </div>
@@ -54,7 +54,6 @@ export const Cart = (props) => {
           className="item-quantity"
           value={item.quantity}
           onChange={(e) => {
-            console.log(e);
             onInputChangeHandler(name, e.target.value);
           }}
         >

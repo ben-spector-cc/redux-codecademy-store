@@ -1,3 +1,17 @@
+export const addItem = (itemToAdd) => {
+  return {
+    type: 'cart/addItem',
+    payload: itemToAdd,
+  };
+};
+
+export const changeItemQuantity = (name, newQuantity) => {
+  return {
+    type: 'cart/changeItemQuantity',
+    payload: { name, newQuantity },
+  };
+};
+
 const initialCart = {};
 export const cartReducer = (cart = initialCart, action) => {
   switch (action.type) {
@@ -28,33 +42,4 @@ export const cartReducer = (cart = initialCart, action) => {
       return cart;
     }
   }
-};
-
-/* 
-addItem() is dispatched when the user clicks on "Add To Cart"
-for a given item in the inventory.
-- @param itemToAdd: an object with .price and .name properties.
-- @returns: an action object of type 'cart/addItem' and the item
-            as the payload
-*/
-export const addItem = (itemToAdd) => {
-  return {
-    type: 'cart/addItem',
-    payload: itemToAdd,
-  };
-};
-
-/* 
-changeItemQuantity() is dispatched when the user changes the quantity
-of a given item already in their cart.
-- @param itemName: the name of the item being changed
-- @param newQuantity: the new quantity value for the item
-- @returns: an action object of type 'cart/changeItemQuantity' and an
-            object with the name and quantity as a payload.
-*/
-export const changeItemQuantity = (name, newQuantity) => {
-  return {
-    type: 'cart/changeItemQuantity',
-    payload: { name, newQuantity },
-  };
 };
