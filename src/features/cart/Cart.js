@@ -1,5 +1,8 @@
 import React from 'react';
-import { calculateTotal } from '../../utilities/utilities.js';
+import {
+  calculateTotal,
+  getCurrencySymbol,
+} from '../../utilities/utilities.js';
 import { changeItemQuantity } from './cartSlice.js';
 // Import the changeItemQuantity() action creator.
 
@@ -26,8 +29,13 @@ export const Cart = (props) => {
     <div id="cart-container">
       <h1>Cart</h1>
       <ul id="cart-items">{cartElements}</ul>
-      <h3>
-        Total: {total} {currencyFilter}
+      <hr />
+      <h3 className="total">
+        Total{' '}
+        <span className="total-value">
+          {getCurrencySymbol(currencyFilter)}
+          {total} {currencyFilter}
+        </span>
       </h3>
     </div>
   );
@@ -42,14 +50,20 @@ export const Cart = (props) => {
     return (
       <li key={name}>
         <p>{name}</p>
-        <input
-          className="quantity"
-          id={name + '-quantity'}
-          type="number"
+        <select
+          className="item-quantity"
           value={item.quantity}
-          onChange={(e) => onInputChangeHandler(name, e.target.value)}
-          min="0"
-        />
+          onChange={(e) => {
+            console.log(e);
+            onInputChangeHandler(name, e.target.value);
+          }}
+        >
+          {[...Array(100).keys()].map((_, index) => (
+            <option key={index} value={index}>
+              {index}
+            </option>
+          ))}
+        </select>
       </li>
     );
   }

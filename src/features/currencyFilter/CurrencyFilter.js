@@ -10,14 +10,20 @@ export const CurrencyFilter = ({ currencyFilter, dispatch }) => {
 
   return (
     <div id="currency-filters-container">
-      <span>Choose a currency:</span>
+      <h3>Choose a currency</h3>
       {currenciesData.map(createCurrencyButton)}
     </div>
   );
 
   function createCurrencyButton(currency) {
     return (
-      <button key={currency} onClick={() => onClickHandler(currency)}>
+      <button
+        className={`currency-button ${
+          currencyFilter === currency && 'selected'
+        }`}
+        key={currency}
+        onClick={() => onClickHandler(currency)}
+      >
         {currency}
       </button>
     );
