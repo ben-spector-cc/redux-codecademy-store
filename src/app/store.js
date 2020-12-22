@@ -9,6 +9,6 @@ const rootReducer = combineReducers({
   cart: cartReducer,
   currencyFilter: currencyFilterReducer,
   inventory: inventoryReducer,
-  searchTerm: searchTermReducer
-})
+  searchTerm: searchTermReducer,
+});
 export const store = createStore(rootReducer);
